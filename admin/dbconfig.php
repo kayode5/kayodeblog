@@ -1,6 +1,6 @@
 <?php
 
-$con = mysqli_connect("eporqep6b4b8ql12.chr7pe7iynqr.eu-west-1.rds.amazonaws.com","	hd63e4pss4kd0lrj","psl4pual893x1v5s"); //connecting database
+$con = mysqli_connect("eporqep6b4b8ql12.chr7pe7iynqr.eu-west-1.rds.amazonaws.com","hd63e4pss4kd0lrj","psl4pual893x1v5s"); //connecting database
 
 if (!$con) //if connection is not true do this
 {
