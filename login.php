@@ -95,7 +95,7 @@ if (isset($_SESSION['name'])) {
                         </form>
                      
                         <div>
-                        <a href="register.php"> Or Sign Up Here</a>
+                        <a href="Register.php"> Or Sign Up Here</a>
                         <a href="forgot-password.php"> <br>Forgot password?</a>
                         </div>
                     </div>
