@@ -15,7 +15,7 @@
     <link rel="icon" href="/view/img/core-img/favicon.ico">
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="/view/style.css">
+    <link rel="stylesheet" href="/style.css">
 
 </head>
 
