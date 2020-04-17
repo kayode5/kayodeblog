@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<script src="https://www.google.com/recaptcha/api.js?render=6Lc6b-oUAAAAAEVDQ4jVm0YlBeTXPuiPbHR_Kow6"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LdfouoUAAAAANgNjwqI-06oFt5IFTDCdNgNBVvv"></script>
 <script>
                         grecaptcha.ready(function() {
-                            grecaptcha.execute('6Lc6b-oUAAAAAEVDQ4jVm0YlBeTXPuiPbHR_Kow6', {action: 'homepage'}).then(function(token) {
+                            grecaptcha.execute('6LdfouoUAAAAANgNjwqI-06oFt5IFTDCdNgNBVvv', {action: 'homepage'}).then(function(token) {
                                 
                             });
                         });
