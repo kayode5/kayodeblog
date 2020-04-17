@@ -97,11 +97,11 @@
 
                            ?>
                            
-                            <a href="/view/logout.php" class="login-btn"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+                            <a href="/logout.php" class="login-btn"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
                         
                         <?php }
                     else{         
-                      echo'  <a href="/view/login.php" class="login-btn"><i class="fa fa-user" aria-hidden="true"></i></a>
+                      echo'  <a href="/login.php" class="login-btn"><i class="fa fa-user" aria-hidden="true"></i></a>
                         </div>';      
                         
                                     } ?>
