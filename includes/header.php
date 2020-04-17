@@ -7,12 +7,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<script src="https://www.google.com/recaptcha/api.js?render=6Lc6b-oUAAAAAEVDQ4jVm0YlBeTXPuiPbHR_Kow6"></script>
+<script>
+                        grecaptcha.ready(function() {
+                            grecaptcha.execute('6Lc6b-oUAAAAAEVDQ4jVm0YlBeTXPuiPbHR_Kow6', {action: 'homepage'}).then(function(token) {
+                                
+                            });
+                        });
+                        </script>
 
     <!-- Title -->
     <title>Kayode's Blog</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="/view/img/core-img/favicon.ico">
+    <link rel="icon" href="/img/core-img/favicon.png">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/style.css">
