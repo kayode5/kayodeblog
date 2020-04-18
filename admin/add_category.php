@@ -3,6 +3,19 @@
 //Start session
 session_start();
 
+
+if(isset($_SESSION["lname"])){
+
+
+	if((time() - $_SESSION['last_time']) > 60) //Time is seconds
+			{
+				 header("location: logout.php");
+			}else {
+				   $_SESSION['last_time'] = time();
+				  // echo "" .$_SESSION["name"];
+				  }
+	}
+	
 //Check whether the session variable SESS_MEMBER_ID is present or not
 if (!isset($_SESSION['uname'])) {
     header("location: login.php");
@@ -71,7 +84,7 @@ $name = $_SESSION['uname'];
                 	include'dbconfig.php';
                 	if(isset($_POST['submit'])) //if the submit button is clicked
                 	{
-						$name=$_POST['name']; //get the name inputted on this field
+						$name=htmlspecialchars($_POST['name']); //get the name inputted on this field
 						$query=mysqli_query($con,"INSERT INTO `category`(Id, name) VALUES (NULL, '$name')"); // insert what was written into the datavase with table name catgory
 						if ($query) { // check if insersion was successful, if successful echo Category Added Successfully.
 					    echo "<h2>Category Added Successfully.</h2>";

@@ -3,6 +3,19 @@
 //Start session
 session_start();
 
+
+if(isset($_SESSION["lname"])){
+
+
+	if((time() - $_SESSION['last_time']) > 60) //Time is seconds
+			{
+				 header("location: logout.php");
+			}else {
+				   $_SESSION['last_time'] = time();
+				  // echo "" .$_SESSION["name"];
+				  }
+}
+
 //Check whether the session variable SESS_MEMBER_ID is present or not
 if (!isset($_SESSION['uname'])) {
     header("location: login.php");
@@ -71,9 +84,9 @@ $name = $_SESSION['uname'];
       }  
       else  
       {  
-           $name = mysqli_real_escape_string($con, $_POST["name"]);
-           $email = mysqli_real_escape_string($con, $_POST["email"]);  
-           $password = mysqli_real_escape_string($con, $_POST["password"]);  
+           $name = mysqli_real_escape_string($con, htmlspecialchars($_POST["name"]));
+           $email = mysqli_real_escape_string($con, htmlspecialchars($_POST["email"]));  
+           $password = mysqli_real_escape_string($con, htmlspecialchars($_POST["password"]));  
            $password = password_hash($password, PASSWORD_DEFAULT);  
            $query = "INSERT INTO author (name, email, password) VALUES('$name', '$email', '$password')";  
            if(mysqli_query($con, $query))  

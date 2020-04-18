@@ -7,7 +7,7 @@ include 'dbconfig.php';
  }  
  if(isset($_POST["register"]))  
  {  
-      if(empty($_POST["name"]) || empty($_POST["password"]))  
+      if(empty($_POST["fname"]) || empty($_POST["password"]))  
       {  
            echo '<script>alert("Both Fields are required")</script>';  
       }  
@@ -28,18 +28,18 @@ include 'dbconfig.php';
  
  if(isset($_POST["login"])){
 
- $_SESSION["lname"] = $_POST["lname"];
- $_SESSION["password"] = $_POST["password"];
+//  $_SESSION["name"] = $_POST["name"];
+//  $_SESSION["password"] = $_POST["password"];
  $_SESSION['last_time'] = time();
   
-      if(empty($_POST["lname"]) || empty($_POST["password"]))  
+      if(empty($_POST["name"]) || empty($_POST["password"]))  
       {  
            echo '<script>alert("Both Fields are required")</script>';  
       }  
       else  
       {  
-           $name = mysqli_real_escape_string($con, htmlspecialchars($_POST["lname"]));  
-           $password = mysqli_real_escape_string($con, htmlspecialchars($_POST["password"]));  
+           $name = mysqli_real_escape_string($con, $_POST["name"]);  
+           $password = mysqli_real_escape_string($con, $_POST["password"]);  
            $query = "SELECT * FROM users WHERE lname = '$name'";  
            $result = mysqli_query($con, $query);  
            if(mysqli_num_rows($result) > 0)  
@@ -79,13 +79,10 @@ include 'dbconfig.php';
            <div class="container" style="width:500px;">  
                
                 <br />  
-                <?php  
-                if(isset($_GET["action"]) == "login")  
-                {  
-                ?>  
+                 
                 <h3 align="center">Login</h3>  
                 <br />  
-                <!-- <form method="post">  
+                <form method="post">  
                      <label>Enter first name</label>  
                      <input type="text" name="fname" class="form-control" />  
                      <br />  
@@ -99,35 +96,16 @@ include 'dbconfig.php';
                      <label>Enter Password</label>  
                      <input type="password" name="password" class="form-control" />  
                      <br />  
-                     <input type="submit" name="login" value="Login" class="btn btn-info" />
+                     <input type="submit" name="register" value="Login" class="btn btn-info" />
                        
                      <p align="right"><a href="register.php">Register Here</a></p>  
                      <br />  
                     
-                </form>   -->
-                <?php       
-                }  
-                else  
-                {  
-                ?>  
-                <h3 align="center">Login</h3>  
-                <br />  
-                <form method="post">  
-                     <label>Enter Username</label>  
-                     <input type="text" name="lname" class="form-control" />  
-                     <br />  
-                     <label>Enter Password</label>  
-                     <input type="password" name="password" class="form-control" />  
-                     <br />  
-                     <input type="submit" name="login" value="Login" class="btn btn-info" />
-                     <!-- <p align="right"><a href="register.php">Register Here</a></p> -->
-                
-                     <br />  
-                    
                 </form>  
-                <?php  
-                }  
-                ?>  
+                     
+               
+                 
+               
            </div>  
       </body>  
  </html>  
