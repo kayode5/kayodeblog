@@ -37,14 +37,19 @@ if (isset($_SESSION['name'])) {
                         <?php
                         include 'admin/dbconfig.php'; //include database file
                         if(isset($_POST['login'])){ //if login is clicked 
+
+                            // $_SESSION["name"] = $_POST["name"];
+                            // $_SESSION["password"] = $_POST["password"];
+                            $_SESSION['last_time'] = time();
+
                         if(empty($_POST['name']) || empty($_POST['password'])) // check the email and password is not empty
                         {
                             echo 'Please Provide an email And a Password';
                         }
                         else{
                            
-                            $name = mysqli_real_escape_string($con, $_POST["name"]);  
-                            $password = mysqli_real_escape_string($con, $_POST["password"]);  
+                            $name = mysqli_real_escape_string($con, htmlspecialchars($_POST["name"]));  
+                            $password = mysqli_real_escape_string($con, htmlspecialchars($_POST["password"]));  
                             $query = "SELECT * FROM user WHERE name = '$name'";  
                             $result = mysqli_query($con, $query);  
                             if(mysqli_num_rows($result) > 0)  
@@ -95,7 +100,7 @@ if (isset($_SESSION['name'])) {
                         </form>
                      
                         <div>
-                        <a href="Register.php"> Or Sign Up Here</a>
+                        <a href="register.php"> Or Sign Up Here</a>
                         <a href="forgot-password.php"> <br>Forgot password?</a>
                         </div>
                     </div>

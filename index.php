@@ -17,11 +17,28 @@
                     <div class="section-heading">
                         <h4> </h4>
                         <?php 
+
+
+                        if(isset($_SESSION["name"])){
+
+
+                            if((time() - $_SESSION['last_time']) > 60) //Time is seconds
+                                    {
+                                        header("location: logout.php");
+                                    }else {
+                                        $_SESSION['last_time'] = time();
+                                        // echo "" .$_SESSION["name"];
+                                        }
+                        }
+
                         if(!empty($_SESSION["name"])) { //if user is logged in display a welcome username else leave blank
                             echo" <br><br><br>";
                         } else {
                             echo" <h4>Welcome</h4>";
                         }
+
+
+
                         ?>
                         <div class="line"></div>
                     </div>

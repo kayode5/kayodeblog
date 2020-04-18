@@ -33,11 +33,14 @@ include 'includes/header.php'; ?>
                         if(isset($_POST['login']))
                         {
                             $name = stripslashes($_REQUEST['name']); // removes backslashes
-		                    $name = mysqli_real_escape_string($con,$name);
+                            $name = mysqli_real_escape_string($con,$name);
+                            $name = filter_var($name, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH,);   // sanitization of input values
                             $email = stripslashes($_REQUEST['email']);
                             $email = mysqli_real_escape_string($con,$email);
+                            $email = filter_var($email, FILTER_SANITIZE_EMAIL, FILTER_FLAG_STRIP_HIGH,);
                             $password = stripslashes($_REQUEST['password']);
                             $password = password_hash($password, PASSWORD_DEFAULT);
+                            $password = filter_var($password, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH,);
                             $sql = "SELECT * FROM user WHERE name='$name' ";
                             $result = mysqli_query($con,$sql);
                             $sql2 = "SELECT * FROM user WHERE email='$email' ";
