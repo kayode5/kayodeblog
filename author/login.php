@@ -6,8 +6,12 @@ include '../admin/dbconfig.php';
       header("location:index.php");  
  }  
  
- if(isset($_POST["login"]))  
- {  
+ if(isset($_POST["login"])){  
+
+     $_SESSION["email"] = $_POST["email"];
+     $_SESSION["password"] = $_POST["password"];
+     $_SESSION['last_time'] = time();
+
       if(empty($_POST["email"]) || empty($_POST["password"]))  
       {  
            echo '<script>alert("Both Fields are required")</script>';  
@@ -15,8 +19,8 @@ include '../admin/dbconfig.php';
       else  
       {  
                     
-          $email = mysqli_real_escape_string($con, $_POST["email"]);  
-           $password = mysqli_real_escape_string($con, $_POST["password"]);  
+          $email = mysqli_real_escape_string($con, htmlspecialchars($_POST["email"]));  
+           $password = mysqli_real_escape_string($con, htmlspecialchars($_POST["password"]));  
            $query = "SELECT * FROM author WHERE email = '$email'";  
            $result = mysqli_query($con, $query);  
            if(mysqli_num_rows($result) > 0)  

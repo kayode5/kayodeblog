@@ -3,6 +3,19 @@
 //Start session
 session_start();
 
+
+if(isset($_SESSION["email"])){
+
+
+	if((time() - $_SESSION['last_time']) > 60) //Time is seconds
+			{
+				 header("location: logout.php");
+			}else {
+				   $_SESSION['last_time'] = time();
+				  // echo "" .$_SESSION["name"];
+				  }
+}
+
 //Check whether the session variable SESS_MEMBER_ID is present or not
 if (!isset($_SESSION['email']) || !isset($_SESSION['Id']) ) {
     header("location: login.php");
@@ -65,8 +78,8 @@ $id = $_SESSION['Id'];
                 	include '../admin/dbconfig.php'; //including the database config 
                 	if(isset($_POST['submit'])) //if the submit button is clicked
                 	{
-                		$name=mysqli_real_escape_string($con, $_POST['name']); //get the name inputted on this field
-						$description=mysqli_real_escape_string($con, $_POST['description']); //get the name inputted on this field
+                		$name=mysqli_real_escape_string($con, htmlspecialchars($_POST['name'])); //get the name inputted on this field
+						$description=mysqli_real_escape_string($con, htmlspecialchars($_POST['description'])); //get the name inputted on this field
 						$country=$_POST['country']; //get the name inputted on this field
                 		$target = "../admin/blog/";  // this is the folder the image files would be moved into
 						$target = $target . basename( $_FILES['image']['name']);  //get the image and file name to be moved
