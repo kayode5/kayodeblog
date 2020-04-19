@@ -32,23 +32,20 @@ include 'includes/header.php'; ?>
                         include 'admin/dbconfig.php'; 
                         if(isset($_POST['login']))
                         {
-                            $name = stripslashes($_REQUEST['name']); // removes backslashes
-                            $name = mysqli_real_escape_string($con,$name);
-                            $name = filter_var($name, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH,);   // sanitization of input values
-                            $email = stripslashes($_REQUEST['email']);
-                            $email = mysqli_real_escape_string($con,$email);
-                            $email = filter_var($email, FILTER_SANITIZE_EMAIL, FILTER_FLAG_STRIP_HIGH,);
-                            $password = stripslashes($_REQUEST['password']);
+                          $name = mysqli_real_escape_string($con, htmlspecialchars($_POST["name"]));
+                            $name = filter_var($name, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
+
+                            $email = mysqli_real_escape_string($con, htmlspecialchars($_POST["email"]));
+                            $email = filter_var($email, FILTER_SANITIZE_EMAIL, FILTER_FLAG_STRIP_HIGH);
+
+                            $password = mysqli_real_escape_string($con, htmlspecialchars($_POST["password"]));
                             $password = password_hash($password, PASSWORD_DEFAULT);
-                            $password = filter_var($password, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH,);
+                            $password = filter_var($password, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
                             $sql = "SELECT * FROM user WHERE name='$name' ";
                             $result = mysqli_query($con,$sql);
                             $sql2 = "SELECT * FROM user WHERE email='$email' ";
                             $result2 = mysqli_query($con,$sql2);
-                            //$sql2 = "SELECT * FROM user WHERE email=$email";
-                            //$result2 = mysqli_query($con,$sql2);
-                            //$check=mysqli_num_rows($result);
-                           // $check2=mysqli_num_rows($result2);
+                         
                             if( mysqli_num_rows($result)){
                                 echo '<script> alert("Name Already Exist")</script>';
                             }
