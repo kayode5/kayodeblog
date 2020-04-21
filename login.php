@@ -44,7 +44,7 @@ if (isset($_SESSION['name'])) {
 
                         if(empty($_POST['name']) || empty($_POST['password'])) // check the email and password is not empty
                         {
-                            echo 'Please Provide an email And a Password';
+                            echo 'Please Provide Username And Password';
                         }
                         else{
                            
