@@ -84,9 +84,8 @@ $name = $_SESSION['uname'];
 						$target = $target . basename( $_FILES['image']['name']); //get the image and file name to be moved
 						$pic=basename($_FILES['image']['name']);
 						$location = $pic;
-							$query="INSERT INTO blog (blogId, blogName, blogBody, blogExcerpt, blogCategory, image ) VALUES (NULL, '$name', '$description', '$description', '$country', '$target')"; // insert what was written into the database with table name blog
-
-						if (mysqli_query($con, $query)) {   // check if insersion was successful, if successful echo blog Added Successfully.
+							$query=mysqli_query($con,"INSERT INTO `blog`(blogId, blogName, blogBody, blogExcerpt, blogCategory, image) VALUES (NULL, '$name','$description', '$description', '$country', '$target')");
+						if ($query) {   // check if insersion was successful, if successful echo blog Added Successfully.
 					    move_uploaded_file($_FILES['image']['tmp_name'],$target);
 					    echo "<h2>Blog Added Successfully.</h2>";
 						 } 
@@ -112,7 +111,8 @@ $name = $_SESSION['uname'];
 				
                         		<div class="form-group">
                         			<label for="description">Blog Post</label>
-                        			
+                        			<script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=bvwekrtlbov2pbjf5znyk246pewutr99oigmpoyp9hqml0p3"></script>
+  <script>tinymce.init({ selector:'textarea' });</script>
   <textarea rows="10" cols="80" name="description"></textarea>
                         		</div>
 								<div class="form-group">
