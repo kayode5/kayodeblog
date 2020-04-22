@@ -106,7 +106,7 @@ $name = $_SESSION['uname'];
                         			</div>
                         			<div class="col-md-4">
                         			
-                        			<a href="delete-user.php?id=<?php echo $id; // get that blog by id ?>"><button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button></a>
+                        			<a href="delete-user.php?id=<?php echo $id;?>"><button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete User</button></a>
                         			</div>
                         			<div class="col-md-12">
                         				<hr>
