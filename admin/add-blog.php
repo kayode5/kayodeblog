@@ -4,17 +4,17 @@
 session_start();
 
 
-if(isset($_SESSION["lname"])){
+//if(isset($_SESSION["lname"])){
 
 
-	if((time() - $_SESSION['last_time']) > 60) //Time is seconds
-			{
-				 header("location: logout.php");
-			}else {
-				   $_SESSION['last_time'] = time();
-				  // echo "" .$_SESSION["name"];
-				  }
-	}
+	//if((time() - $_SESSION['last_time']) > 60) //Time is seconds
+	//		{
+	//			 header("location: logout.php");
+	//		}else {
+	//			   $_SESSION['last_time'] = time();
+	//			  // echo "" .$_SESSION["name"];
+	//			  }
+	//}
 	
 //Check whether the session variable SESS_MEMBER_ID is present or not
 if (!isset($_SESSION['uname'])) {
