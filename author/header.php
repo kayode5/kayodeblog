@@ -1,3 +1,9 @@
+  <?php
+    header("X-Frame-Options: sameorigin");
+    header("X-XSS-Protection: 1; mode=block");
+    header("X-Content-Type-Options: nosniff");
+    ?>
+
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
