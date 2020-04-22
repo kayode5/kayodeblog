@@ -49,7 +49,8 @@ include 'dbconfig.php';
                      if(password_verify($password, $row["password"]))  
                      {  
                           //return true;  
-                          $_SESSION["uname"] = $name;  
+                          $_SESSION["lname"] = $name;
+                      $_SESSION["Id"] = $row["Id"];
                           header("location:index.php");  
                      }  
                      else  
