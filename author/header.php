@@ -3,6 +3,8 @@
     header("X-XSS-Protection: 1; mode=block");
     header("X-Content-Type-Options: nosniff");
 header("Strict-Transport-Security: max-age=31536000");
+header("Content-Security-Policy: default-src 'none'; script-src 'self'; connect-src 'self'; img-src 'self'; style-src 'self';");
+header("Referrer-Policy: origin-when-cross-origin");
     ?>
 
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
