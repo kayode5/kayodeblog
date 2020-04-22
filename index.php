@@ -22,7 +22,7 @@
                         if(isset($_SESSION["name"])){
 
 
-                            if((time() - $_SESSION['last_time']) > 60) //Time is seconds
+                            if((time() - $_SESSION['last_time']) > 300) //Time is seconds
                                     {
                                         header("location: logout.php");
                                     }else {
