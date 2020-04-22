@@ -13,7 +13,7 @@ if (!isset($_SESSION['uname'])) {
 $name = $_SESSION['uname'];
 include 'dbconfig.php';  //including the database config 
 $get_id=$_GET['id']; //get that blog by the id since its unique
-$query=mysqli_query($con,"delete from User where Id='$get_id'");//query to delete that blog by id since its unique
+$query=mysqli_query($con,"DELETE FROM User WHERE Id='$get_id'");//query to delete that blog by id since its unique
 if($query){ //if query is true reload the view page and echo deleted successfully
     header('location:view-user.php');
     echo "<h2>User Deleted Successfully.</h2>";
