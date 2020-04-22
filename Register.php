@@ -58,7 +58,6 @@ include 'includes/header.php'; ?>
                             
                                 $result = mysqli_query($con, $query);
                                     if($result){
-                                        header("Location: login.php");
                                          echo '<script>alert("Registration Done")</script>';
                                     }
 
