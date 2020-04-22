@@ -17,13 +17,13 @@ if(isset($_SESSION["lname"])){
 	}
 	
 //Check whether the session variable SESS_MEMBER_ID is present or not
-if (!isset($_SESSION['lname'])) {
+if (!isset($_SESSION['uname'])) {
     header("location: login.php");
     exit();
 }
 
 
-$name = $_SESSION['lname'];
+$name = $_SESSION['uname'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
