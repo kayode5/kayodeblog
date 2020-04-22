@@ -85,7 +85,7 @@ $id = $_SESSION['Id'];
 						$target = $target . basename( $_FILES['image']['name']);  //get the image and file name to be moved
 						$pic=basename($_FILES['image']['name']);
 						$location = $pic;
-						
+						if ($_FILES['image']['type']=='image/jpg' || $_FILES['image']['type']=='image/jpeg' || $_FILES['image']['type']=='image/png'){
 						$query=mysqli_query($con,"INSERT INTO `blog`(blogId, blogName, blogBody, blogExcerpt, blogCategory, image, author_id ) VALUES (NULL, '$name','$description', '$description', '$country', '$target', '$id')");
 						if ($query) {
 					    move_uploaded_file($_FILES['image']['tmp_name'],$target); // check if insersion was successful, if successful echo blog Added Successfully.
@@ -95,6 +95,10 @@ $id = $_SESSION['Id'];
 						 {
 						    echo "Error updating record: " . mysql_error();
 						 }
+							}
+						else{
+							echo '<script> alert("Wrong Image Format")</script>';
+						}
 
                 	}
                 	?>
