@@ -17,7 +17,7 @@ if(isset($_SESSION["lname"])){
 	}
 	
 //Check whether the session variable SESS_MEMBER_ID is present or not
-if (!isset($_SESSION['uname'])) {
+if (!isset($_SESSION['lname'])) {
     header("location: login.php");
     exit();
 }
@@ -77,8 +77,8 @@ $name = $_SESSION['uname'];
                 	include'dbconfig.php'; //including the database config 
                 	if(isset($_POST['submit'])) //if the submit button is clicked
                 	{
-						$name=mysqli_real_escape_string($con,($_POST['name'])); //get the name inputted on this field
-						$description=mysqli_real_escape_string($con,($_POST['description'])); //get the name inputted on this field
+						$name=mysqli_real_escape_string($con,htmlspecialchars($_POST['name'])); //get the name inputted on this field
+						$description=mysqli_real_escape_string($con, htmlspecialchars($_POST['description'])); //get the name inputted on this field
 						$country=$_POST['country']; //get the name inputted on this field
                 		$target = "blog/"; // this is the folder the image files would be moved into
 						$target = $target . basename( $_FILES['image']['name']); //get the image and file name to be moved
