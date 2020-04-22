@@ -2,6 +2,7 @@
     header("X-Frame-Options: sameorigin");
     header("X-XSS-Protection: 1; mode=block");
     header("X-Content-Type-Options: nosniff");
+header("Strict-Transport-Security: max-age=31536000");
     ?>
 
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
