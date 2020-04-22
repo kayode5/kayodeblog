@@ -127,8 +127,7 @@ $id = $_SESSION['Id'];
                         		</div>
                         		<div class="form-group">
                         			<label for="description">Description</label>
-                        			<script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=bvwekrtlbov2pbjf5znyk246pewutr99oigmpoyp9hqml0p3"></script>
-  <script>tinymce.init({ selector:'textarea' });</script>
+                        			
   <textarea rows="10" cols="80" name="description"><?php echo $rows['blogBody']; ?></textarea>
                         		</div>
                         		<div class="form-group">
