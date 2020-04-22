@@ -77,15 +77,15 @@ $name = $_SESSION['uname'];
                 	include'dbconfig.php'; //including the database config 
                 	if(isset($_POST['submit'])) //if the submit button is clicked
                 	{
-						$name=mysqli_real_escape_string($con, htmlspecialchars($_POST['name'])); //get the name inputted on this field
-						$description=mysqli_real_escape_string($con, htmlspecialchars($_POST['description'])); //get the name inputted on this field
+						$name=mysqli_real_escape_string($con,($_POST['name'])); //get the name inputted on this field
+						$description=mysqli_real_escape_string($con,($_POST['description'])); //get the name inputted on this field
 						$country=$_POST['country']; //get the name inputted on this field
                 		$target = "blog/"; // this is the folder the image files would be moved into
 						$target = $target . basename( $_FILES['image']['name']); //get the image and file name to be moved
 						$pic=basename($_FILES['image']['name']);
 						$location = $pic;
 						if ($_FILES['image']['type']=='image/jpg' || $_FILES['image']['type']=='image/jpeg' || $_FILES['image']['type']=='image/png'){
-							$query=mysqli_query($con,"INSERT INTO `blog`(blogId, blogName, blogBody, blogExcerpt, blogCategory, image ) VALUES (NULL, '$name', '$description', '$description', '$country', '$location')"); // insert what was written into the database with table name blog
+							$query=mysqli_query($con,"INSERT INTO `blog`(blogId, blogName, blogBody, blogExcerpt, blogCategory, image ) VALUES (NULL, '$name', '$description', '$description', '$country', '$target')"); // insert what was written into the database with table name blog
 
 						if ($query) {   // check if insersion was successful, if successful echo blog Added Successfully.
 					    move_uploaded_file($_FILES['image']['tmp_name'],$target);
