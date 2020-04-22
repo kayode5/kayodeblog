@@ -23,7 +23,7 @@ if (!isset($_SESSION['lname'])) {
 }
 
 
-$name = $_SESSION['uname'];
+$name = $_SESSION['lname'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
