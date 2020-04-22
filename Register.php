@@ -53,7 +53,7 @@ include 'includes/header.php'; ?>
                                 echo '<script> alert("Email Already Exist")</script>';
 
                             }
-                            else{
+                           else{
                                    $query=mysqli_query($con,"INSERT INTO `user`(Id, name, email, password) VALUES (NULL, '$name','$email', '$password')");
                             
                                 //$result = mysqli_query($query);
