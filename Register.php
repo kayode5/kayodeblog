@@ -83,7 +83,7 @@ include 'includes/header.php'; ?>
                                     
                                 </div>
                             </div>
-                            <button type="submit" name="login" class="btn vizew-btn w-100 mt-30"> Sign Up Now</button>
+                            <button type="submit" name="login" class="btn vizew-btn w-100 mt-30"> Sign Up </button>
                         </form>
                         <div>
                         <a href="login.php"> Or Sign In Here</a>
