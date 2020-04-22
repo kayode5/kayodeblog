@@ -1,3 +1,9 @@
+  <?php
+    header("X-Frame-Options: sameorigin");
+    header("X-XSS-Protection: 1; mode=block");
+    header("X-Content-Type-Options: nosniff");
+    ?>
+
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -6,9 +12,6 @@
         <title> Admin-Kayode's Blog</title>
 		<link rel="icon" type="image/png" sizes="16x16" href="assets/img/icon.png">
 		
-	  header("X-Frame-Options: sameorigin");
-  	  header("X-XSS-Protection: 1; mode=block");
-  	  header("X-Content-Type-Options: nosniff");
         <!-- Common Plugins -->
 		<link href="assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link href="https://cdn.jsdelivr.net/npm/sweetalert2@8.19.0/dist/sweetalert2.min.css" rel="stylesheet">
