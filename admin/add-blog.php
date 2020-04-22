@@ -84,10 +84,9 @@ $name = $_SESSION['uname'];
 						$target = $target . basename( $_FILES['image']['name']); //get the image and file name to be moved
 						$pic=basename($_FILES['image']['name']);
 						$location = $pic;
-						
-							$query=mysqli_query($con,"INSERT INTO `blog`(blogId, blogName, blogBody, blogExcerpt, blogCategory, image ) VALUES (NULL, '$name', '$description', '$description', '$country', '$target')"); // insert what was written into the database with table name blog
+							$query="INSERT INTO blog (blogId, blogName, blogBody, blogExcerpt, blogCategory, image ) VALUES (NULL, '$name', '$description', '$description', '$country', '$target')"; // insert what was written into the database with table name blog
 
-						if ($query) {   // check if insersion was successful, if successful echo blog Added Successfully.
+						if (mysqli_query($con, $query)) {   // check if insersion was successful, if successful echo blog Added Successfully.
 					    move_uploaded_file($_FILES['image']['tmp_name'],$target);
 					    echo "<h2>Blog Added Successfully.</h2>";
 						 } 
