@@ -85,7 +85,7 @@ $name = $_SESSION['uname'];
 						$pic=basename($_FILES['image']['name']);
 						$location = $pic;
 						if ($_FILES['image']['type']=='image/jpg' || $_FILES['image']['type']=='image/jpeg' || $_FILES['image']['type']=='image/png'){
-							$query=mysqli_query($con,"INSERT INTO `blog`(blogId, blogName, blogBody, blogExcerpt, blogCategory, image ) VALUES (NULL, '$name', '$description', '$description', '$country', '$target')"); // insert what was written into the database with table name blog
+							$query=mysqli_query($con,"INSERT INTO `blog`(blogId, blogName, blogBody, blogExcerpt, blogCategory, image ) VALUES (NULL, '$name', '$description', '$description', '$country', '$location')"); // insert what was written into the database with table name blog
 
 						if ($query) {   // check if insersion was successful, if successful echo blog Added Successfully.
 					    move_uploaded_file($_FILES['image']['tmp_name'],$target);
