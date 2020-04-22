@@ -56,8 +56,8 @@ include 'includes/header.php'; ?>
                             else{
                                    $query=mysqli_query($con,"INSERT INTO `user`(Id, name, email, password) VALUES (NULL, '$name','$email', '$password')");
                             
-                                $result = mysqli_query($query);
-                                    if($result){
+                                //$result = mysqli_query($query);
+                                    if($query){
                                          echo '<script>alert("Registration Done")</script>';
                                     }
 
